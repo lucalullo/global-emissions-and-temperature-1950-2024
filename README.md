@@ -1,73 +1,196 @@
-# Global Climate Analysis: CO₂, Greenhouse Gas Emissions & Temperature Trends (1950–2024)
-![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54)
-![Pandas](https://img.shields.io/badge/pandas-%23150458.svg?style=for-the-badge&logo=pandas&logoColor=white)
-![NumPy](https://img.shields.io/badge/numpy-%23013243.svg?style=for-the-badge&logo=numpy&logoColor=white)
-![Matplotlib](https://img.shields.io/badge/Matplotlib-%23ffffff.svg?style=for-the-badge&logo=Matplotlib&logoColor=black)
-![Seaborn](https://img.shields.io/badge/Seaborn-4C72B0?style=for-the-badge&logo=python&logoColor=white)
-![Plotly](https://img.shields.io/badge/Plotly-%233F4F75.svg?style=for-the-badge&logo=plotly&logoColor=white)
-![Kaggle](https://img.shields.io/badge/Kaggle-20BEFF?style=for-the-badge&logo=Kaggle&logoColor=white)
 
-This repository contains a global climate data analysis covering 75 years of CO₂ emissions, greenhouse gas emissions, and mean surface temperatures across countries (1950–2024).
+# Global Climate Analysis: CO₂, Greenhouse Gas Emissions & Temperature Trends (1950-2024)
 
-🔗 **Original Notebook on Kaggle:** [View here](https://www.kaggle.com/code/lucalullo/global-emissions-and-temperature-1950-2024)  
-📓 **Notebook on GitHub:** [View here](https://github.com/lucalullo/Global-emissions-and-temperature-1950-2024/blob/main/global-emissions-and-temperature-1950-2024.ipynb)
+**75 years of global climate data - analyzing CO₂ emissions, greenhouse gas emissions, and temperature trends across countries from 1950 to 2024.**
 
-## 📈 Key Findings
+This project explores long-term changes in global emissions and surface temperatures through time-series analysis, country-level comparisons, statistical correlations, and interactive geographic visualizations.
+
+[![Kaggle Notebook](https://img.shields.io/badge/Kaggle-Notebook-20BEFF?logo=kaggle&logoColor=white)](https://www.kaggle.com/code/lucalullo/global-emissions-and-temperature-1950-2024)
+![Python](https://img.shields.io/badge/Python-3.x-3776AB?logo=python&logoColor=white)
+![Jupyter Notebook](https://img.shields.io/badge/Jupyter-Notebook-F37626?logo=jupyter&logoColor=white)
+![pandas](https://img.shields.io/badge/pandas-Data_Analysis-150458?logo=pandas&logoColor=white)
+![NumPy](https://img.shields.io/badge/NumPy-Numerical_Computing-013243?logo=numpy&logoColor=white)
+![Matplotlib](https://img.shields.io/badge/Matplotlib-Visualization-11557C)
+![Seaborn](https://img.shields.io/badge/Seaborn-Statistical_Plots-4C72B0)
+![Plotly](https://img.shields.io/badge/Plotly-Interactive_Maps-3F4F75?logo=plotly&logoColor=white)
+
+**[View the original Kaggle notebook](https://www.kaggle.com/code/lucalullo/global-emissions-and-temperature-1950-2024)** | **[Explore the notebook](global-emissions-and-temperature-1950-2024.ipynb)** | **[Author's GitHub](https://github.com/lucalullo)**
+
+---
+
+## At a glance
+
+| | |
+|---|---|
+| **Period** | 1950-2024 (75 years) |
+| **Geographic scope** | Global, with country-level comparisons |
+| **Focus** | CO₂ emissions, greenhouse gas emissions, surface temperature trends |
+| **Data** | Three Kaggle datasets covering emissions and temperatures by country |
+| **Methods** | Exploratory data analysis, time-series comparisons, correlation analysis |
+| **Visualizations** | Line charts, stacked area charts, bubble plots, choropleth maps |
+| **Core libraries** | pandas, NumPy, Matplotlib, Seaborn, Plotly |
+| **Environment** | Python and Jupyter Notebook |
+
+## Key observations
+
+The original notebook highlights several long-term patterns:
+
+1. **Global CO₂ emissions:** annual emissions increase from 5,792 MtCO₂ in 1950 to 37,393 MtCO₂ in 2024, a rise of approximately **546%**.
+2. **Greenhouse gas emissions:** annual emissions grow from 17,040 to 54,412 MtCO₂eq over the same period, an increase of approximately **219%**.
+3. **Surface temperature:** the dataset's reported mean temperature rises from 18.69°C to 20.34°C, a difference of **1.65°C**.
+4. **Emission sources:** natural gas records the largest relative increase among the examined CO₂ sources, growing from 353 to 8,009 MtCO₂.
+5. **Geographic differences:** China becomes the largest annual CO₂ emitter, while the strongest reported country-level temperature increases occur in Central Asia.
+6. **Statistical relationships:** global emissions and mean temperature show strong positive correlations across the observed period.
+
+These findings describe patterns in the analyzed datasets. Correlations and temporal associations should not be interpreted as direct evidence of causality.
+
+### Key indicators
 
 | Indicator | 1950 | 2024 | Change |
-|---|---|---|---|
-| Global CO₂ | 5,792 MtCO₂ | 37,393 MtCO₂ | **+546%** |
-| Global GHG | 17,040 MtCO₂eq | 54,412 MtCO₂eq | **+219%** |
-| Mean Temperature | 18.69°C | 20.34°C | **+1.65°C** |
-| Top CO₂ emitter | USA | China | — |
-| Fastest-growing CO₂ source | Coal | Natural Gas | **+2,168%** |
-| Most warmed country | — | Uzbekistan | **+3.48°C** |
+|---|---:|---:|---:|
+| Global CO₂ emissions | 5,792 MtCO₂ | 37,393 MtCO₂ | **+546%** |
+| Global GHG emissions | 17,040 MtCO₂eq | 54,412 MtCO₂eq | **+219%** |
+| Reported mean temperature | 18.69°C | 20.34°C | **+1.65°C** |
+| Largest annual CO₂ emitter | USA | China | - |
+| Natural gas CO₂ emissions | 353 MtCO₂ | 8,009 MtCO₂ | **+2,168%** |
 
-## 🛠️ Key Features
+## Analysis workflow
 
-- **Global Emission Trends:**
-  - Time series of global CO₂, GHG, and mean temperature from 1950 to 2024
-  - Decade-over-decade percentage growth comparison across all three indicators
-  - Acceleration driven by industrialization of China and India from the 2000s onward
+```text
+Global climate datasets
+          |
+          v
+    Data inspection
+          |
+          v
+Global emissions and temperature trends
+          |
+          v
+   Emission source analysis
+          |
+          v
+Country rankings and comparisons
+          |
+          v
+ Geographic visualizations
+          |
+          v
+   Statistical correlations
+          |
+          v
+ Interpretation and limitations
+```
 
-- **Emission Source Analysis:**
-  - Breakdown of CO₂ by source: coal, oil, natural gas, cement
-  - Stacked area chart (absolute) and 100% area chart (share) for source composition over time
-  - Natural gas identified as the fastest-growing source: from 353 Mt to 8,009 Mt (+2,168%)
+### What the notebook visualizes
 
-- **Top Emitters 2024:**
-  - Top 15 countries by total CO₂ and total GHG with global share percentages
-  - Bubble chart: total CO₂ vs per-capita CO₂, sized by total GHG
-  - Cumulative share area chart — Top 5 countries vs rest of the world (1950–2024)
-  - China accounts for 32.9% of global CO₂ but only 8.7 t/capita; Saudi Arabia and Kuwait exceed 20–40 t/capita
+- **Global trends (1950-2024):** annual CO₂ emissions, greenhouse gas emissions, and mean temperature, including decade-over-decade growth comparisons.
+- **Emission source composition:** coal, oil, natural gas, and cement contributions through absolute stacked area charts and percentage-share visualizations.
+- **Country emissions:** top 15 CO₂ and GHG emitters in 2024, per-capita emissions, and the cumulative share of the five largest emitters.
+- **Country-level warming:** temperature changes between 1950 and 2024, rankings of the most and least warmed countries, and five-year rolling averages.
+- **Geographic patterns:** choropleth maps of per-capita CO₂ emissions and temperature changes, including an animated emissions map.
+- **Statistical relationships:** correlation matrices and scatter plots with linear trend lines comparing emissions and temperatures.
 
-- **Global Warming by Country:**
-  - Temperature delta (1950 → 2024) for all countries with available data
-  - Top 20 most warmed and 10 least warmed countries
-  - Central Asian ex-Soviet countries lead warming: Uzbekistan (+3.48°C), Kazakhstan (+3.29°C), Kyrgyzstan (+3.20°C)
-  - 5-year rolling average temperature curves for selected countries
+## Detailed findings
 
-- **Choropleth Maps:**
-  - Per-capita CO₂ by country (2024)
-  - Temperature delta by country (1950 → 2024)
-  - Animated choropleth: evolution of per-capita CO₂ every 5 years from 1950 to 2024
+### Emissions and energy sources
 
-- **Statistical Correlations:**
-  - Correlation matrix across global CO₂, GHG, and mean temperature aggregates
-  - Scatter plots with linear trend lines: CO₂ vs Temperature (r = 0.895), GHG vs Temperature (r = 0.889)
-  - Note: correlations are descriptive and do not imply direct causality
+The analysis examines the changing composition of global CO₂ emissions across coal, oil, natural gas, and cement.
 
-## 🚀 How to use
+Natural gas emissions increase from **353 MtCO₂ to 8,009 MtCO₂ (+2,168%)**, representing the largest relative growth among the examined sources.
 
-1. Clone the repo: `git clone https://github.com/lucalullo/Global-Emissions-and-Temperature-1950-2024.git`
-2. Install dependencies: `pip install pandas numpy matplotlib seaborn plotly`
-3. Download the datasets from Kaggle:
-   - [Global Mean Temperature by Country 1950–2024](https://www.kaggle.com/datasets/lucalullo/global-mean-temperature-by-country-1950-2024)
-   - [Global CO₂ Emissions by Country 1950–2024](https://www.kaggle.com/datasets/lucalullo/global-co2-emissions-by-country-1950-2024)
-   - [Global GHG Emissions by Country 1950–2024](https://www.kaggle.com/datasets/lucalullo/global-ghg-gas-emissions-by-country-1950-2024)
-4. Run the `global-emissions-and-temperature-1950-2024.ipynb` notebook
+The notebook also highlights the increasing contribution of China and India to global emissions from the 2000s onward.
+
+### Country-level comparisons
+
+The 2024 analysis combines total emissions, per-capita emissions, and global shares to distinguish between national emission volumes and population-adjusted contributions.
+
+- **China:** 32.9% of global CO₂ emissions and approximately 8.7 tonnes per capita in the analyzed data.
+- **Saudi Arabia and Kuwait:** per-capita CO₂ emissions exceeding 20 tonnes, with values reaching above 40 tonnes in the reported comparisons.
+- **Top five emitters:** their combined contribution is tracked over time against the rest of the world.
+
+### Temperature changes
+
+The notebook compares country-level temperature differences between 1950 and 2024.
+
+The largest reported increases include:
+
+| Country | Temperature change |
+|---|---:|
+| Uzbekistan | **+3.48°C** |
+| Kazakhstan | **+3.29°C** |
+| Kyrgyzstan | **+3.20°C** |
+
+Five-year rolling averages are also used to visualize temperature trends while reducing short-term fluctuations.
+
+### Statistical correlations
+
+The analysis reports strong positive correlations between global emissions and the dataset's mean temperature series:
+
+| Variables | Pearson correlation |
+|---|---:|
+| Global CO₂ vs. mean temperature | **0.895** |
+| Global GHG vs. mean temperature | **0.889** |
+
+These are descriptive correlations between time-dependent aggregates. They do **not** establish direct causality or isolate the effects of individual climate drivers.
+
+## Datasets
+
+The analysis combines three datasets published on Kaggle:
+
+| Dataset | Contents |
+|---|---|
+| [Global Mean Temperature by Country (1950-2024)](https://www.kaggle.com/datasets/lucalullo/global-mean-temperature-by-country-1950-2024) | Country-level mean surface temperature records |
+| [Global CO₂ Emissions by Country (1950-2024)](https://www.kaggle.com/datasets/lucalullo/global-co2-emissions-by-country-1950-2024) | CO₂ emissions, per-capita indicators, and emission sources |
+| [Global GHG Emissions by Country (1950-2024)](https://www.kaggle.com/datasets/lucalullo/global-ghg-gas-emissions-by-country-1950-2024) | Greenhouse gas emissions by country |
+
+The datasets are available through Kaggle. Refer to their respective pages for access and applicable terms of use.
+
+## Repository contents
+
+```text
+Global-emissions-and-temperature-1950-2024/
+├── README.md
+└── global-emissions-and-temperature-1950-2024.ipynb
+```
+
+The notebook contains the exploratory analysis, statistical comparisons, visualizations, and interpretation of the climate datasets.
+
+## Run the notebook
+
+The reference environment is **Kaggle**, where the original notebook and its associated datasets are available.
+
+To run it locally, install the required dependencies:
+
+```bash
+python -m pip install pandas numpy matplotlib seaborn plotly jupyter
+```
+
+Then:
+
+1. Download the three datasets linked above.
+2. Open `global-emissions-and-temperature-1950-2024.ipynb` in Jupyter.
+3. Make the downloaded data files available to the notebook.
+4. Update any Kaggle-specific dataset paths to match the local file locations.
+
+These path adjustments are necessary only when the local environment differs from the original Kaggle setup.
+
+## Scope and limitations
+
+- The work is **descriptive exploratory analysis**, not a causal attribution study or a climate forecasting model.
+- Correlations between emissions and temperatures do not establish causation, particularly when comparing variables with long-term trends.
+- Country-level temperature differences depend on dataset coverage, measurement definitions, and the selected reference years.
+- The reported mean temperature series should not automatically be interpreted as the standard global temperature anomaly relative to a pre-industrial baseline.
+- National emission totals and per-capita indicators describe different aspects of environmental pressure and should not be treated as interchangeable.
+- The analysis covers **1950-2024** and does not include subsequent years.
+
+## Related work
+
+This project complements my other work on exploratory data analysis, statistical visualization, and reproducible Python projects.
+
+- [GitHub profile and selected projects](https://github.com/lucalullo)
+- [Kaggle profile](https://www.kaggle.com/lucalullo)
 
 ---
 
 **Author:** [Luca Lullo](https://github.com/lucalullo)  
-*Data Scientist | Machine Learning Applied*
+**Original Kaggle work:** [Global Emissions and Temperature (1950-2024)](https://www.kaggle.com/code/lucalullo/global-emissions-and-temperature-1950-2024)
